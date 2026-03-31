@@ -3,6 +3,7 @@ package br.uniesp.si.techback.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Builder.Default;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -26,7 +27,8 @@ public class Usuario implements UserDetails {
     private Long id;
 
     @Version
-    private Long version;
+    @Default
+    private Long version = 0L;
 
     @Column(unique = true, nullable = false)
     private String username;
